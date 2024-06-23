@@ -32,7 +32,7 @@ public abstract class AttackHandler {
    * @param target targeted entity.
    */
   protected static void handle(Entity entity, Entity directEntity, LivingEntity target) {
-    if (entity instanceof LivingEntity attacker && entity == directEntity && !entity.level().isClientSide && !entity.isSpectator() && canAttack(attacker, target)) {
+    if (entity instanceof LivingEntity attacker && entity.equals(directEntity) && !entity.level().isClientSide && !entity.isSpectator() && canAttack(attacker, target)) {
       InteractionHand interactionHand = getInteractionHand(attacker);
       if (interactionHand != null && !target.fireImmune()) {
         ItemStack item = attacker.getItemInHand(interactionHand);
@@ -65,7 +65,7 @@ public abstract class AttackHandler {
    * @param seconds fire duration.
    */
   private static void consumeItem(LivingEntity attacker, ItemStack item, boolean directHit, int seconds) {
-    if (!(attacker instanceof Player && ((Player) attacker).isCreative())) {
+    if (!(attacker instanceof Player player && player.isCreative())) {
       if (((isCandle(item) && ModConfig.getConsumeCandle()) || (isTorch(item) && ModConfig.getConsumeTorch())) && (directHit || ModConfig.getConsumeWithIndirectHits()) && (ModConfig.getConsumeWithoutFire() || seconds > 0)) {
         item.shrink(1);
       } else if (attacker.getMainHandItem().getItem() instanceof TieredItem tieredItem && tieredItem.getTier() == Tiers.WOOD && ModConfig.getIndirectHitToolDamage() > 0) {
