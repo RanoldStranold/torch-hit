@@ -32,7 +32,7 @@ public abstract class AttackHandler {
    * @param target targeted entity.
    */
   protected static void handle(Entity entity, Entity directEntity, LivingEntity target) {
-    if (entity instanceof LivingEntity attacker && entity.equals(directEntity) && !entity.level().isClientSide && !entity.isSpectator() && canAttack(attacker, target)) {
+    if (entity instanceof LivingEntity attacker && entity.equals(directEntity) && !entity.level.isClientSide && !entity.isSpectator() && canAttack(attacker, target)) {
       InteractionHand interactionHand = getInteractionHand(attacker);
       if (interactionHand != null && !target.fireImmune()) {
         ItemStack item = attacker.getItemInHand(interactionHand);
