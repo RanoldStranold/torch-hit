@@ -23,14 +23,19 @@ Compatible with [Soul Fire'd](https://modrinth.com/mod/soul-fire-d) and with any
 ![Soul hit](https://raw.githubusercontent.com/crystal-nest/mod-fancy-assets/main/torch-hit/soul-hit.gif) ![Mod hit](https://raw.githubusercontent.com/crystal-nest/mod-fancy-assets/main/torch-hit/mod-hit.gif)  
 Furthermore, if the modded torch is already compatible with Soul Fire'd, striking with it will set on the correct kind of fire!
 
+It's also compatible with [Better Combat](https://modrinth.com/mod/better-combat)!  
+![Better Combat torch hit](https://raw.githubusercontent.com/crystal-nest/mod-fancy-assets/main/torch-hit/better-combat-torch.gif) ![Better Combat candle hit](https://raw.githubusercontent.com/crystal-nest/mod-fancy-assets/main/torch-hit/better-combat-candle.gif)  
+Just make sure you tweak Better Combat's `/config/bettercombat/fallback_compatibility.json` by locating the entry with `"weapon_attributes": "bettercombat:wand"` and adding `|torch|candle` at the end of the `item_id_regex` property.  
+Remove `|candle` if you disable candles in Torch hit!'s configuration.
+
 ## **Features**
 
 - Hit with a torch in your main hand to deal fire damage!  
   ![Hit](https://raw.githubusercontent.com/crystal-nest/mod-fancy-assets/main/torch-hit/hit.gif)
-- Hit with a tool in your main hand and a torch in your off hand to deal fire damage!  
+- Hit with a tool in your main hand and a torch in your offhand to deal fire damage!  
   ![Tool hit](https://raw.githubusercontent.com/crystal-nest/mod-fancy-assets/main/torch-hit/tool-hit.gif)
 - If Soul Fire'd is installed, soul torches set mobs on soul fire!  
-  If it's not installed, soul torches lit Piglins on fire for double the time and any other entity for 1 second more!
+  If it's not installed, soul torches lit Piglins on fire for double the time and any other entity for 2 seconds more!
 - **Highly configurable!** See next section for more details.
 
 ## **Configuration**
@@ -51,12 +56,11 @@ Furthermore, if the modded torch is already compatible with Soul Fire'd, strikin
 
 ## **Dependencies**
 
-| Mod                                                                     |          Loader          | Requirement |
-|:------------------------------------------------------------------------|:------------------------:|:-----------:|
-| [Cobweb](https://modrinth.com/mod/cobweb)                               |           All            |  Required   |
-| [Forge Config API Port](https://modrinth.com/mod/forge-config-api-port) |          Fabric          |  Required   |
-| [Fabric Polyfill](https://modrinth.com/mod/fabric-polyfill)             | Fabric (1.16.5 & 1.18.2) |  Required   |
-| [Soul Fire'd](https://modrinth.com/mod/soul-fire-d)                     |       Fabric/Forge       |  Optional   |
+| Mod                                                                     |         Loader         | Requirement |
+|:------------------------------------------------------------------------|:----------------------:|:-----------:|
+| [Cobweb](https://modrinth.com/mod/cobweb)                               |          All           |  Required   |
+| [Forge Config API Port](https://modrinth.com/mod/forge-config-api-port) | Fabric; Forge ≥ 1.20.2 |  Required   |
+| [Soul Fire'd](https://modrinth.com/mod/soul-fire-d)                     |      Fabric/Forge      |  Optional   |
 
 ## **License and right of use**
 

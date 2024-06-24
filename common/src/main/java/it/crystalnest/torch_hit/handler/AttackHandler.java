@@ -181,6 +181,6 @@ public abstract class AttackHandler {
    * @return whether the {@code attacker} can actually attack the {@code target}.
    */
   private static boolean canAttack(LivingEntity attacker, LivingEntity target) {
-    return (attacker instanceof Player || ModConfig.getFireFromMobs()) && attacker.canAttack(target) && (!(attacker instanceof Player && target instanceof Player) || ((Player) attacker).canHarmPlayer((Player) target));
+    return (attacker instanceof Player || ModConfig.getFireFromMobs()) && attacker.canAttack(target) && (!(attacker instanceof Player attackerPlayer && target instanceof Player targetPlayer) || attackerPlayer.canHarmPlayer(targetPlayer));
   }
 }
