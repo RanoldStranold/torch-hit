@@ -3,7 +3,7 @@ package it.crystalnest.torch_hit.config;
 import it.crystalnest.cobweb.api.config.CommonConfig;
 import it.crystalnest.torch_hit.Constants;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.util.List;
@@ -21,81 +21,81 @@ public final class ModConfig extends CommonConfig {
   /**
    * Fire Aspect Duration for Direct Hits.
    */
-  private ModConfigSpec.IntValue directHitDuration;
+  private ForgeConfigSpec.IntValue directHitDuration;
 
   /**
    * Fire Aspect Duration for Indirect Hits.
    */
-  private ModConfigSpec.IntValue indirectHitDuration;
+  private ForgeConfigSpec.IntValue indirectHitDuration;
 
   /**
    * List of tools that can be used to deal Indirect Hits.
    * Empty if Indirect Hits are disabled.
    */
-  private ModConfigSpec.ConfigValue<List<? extends String>> indirectHitToolList;
+  private ForgeConfigSpec.ConfigValue<List<? extends String>> indirectHitToolList;
 
   /**
    * How much Indirect Hits should damage wooden tools.<br />
    * Must be positive, {@code 0} to disable.
    */
-  private ModConfigSpec.IntValue indirectHitToolDamage;
+  private ForgeConfigSpec.IntValue indirectHitToolDamage;
 
   /**
    * List of item ids that should be considered as a Torch.
    * Defaults to a list of the most common modded torches.
    */
-  private ModConfigSpec.ConfigValue<List<? extends String>> extraTorchItems;
+  private ForgeConfigSpec.ConfigValue<List<? extends String>> extraTorchItems;
 
   /**
    * List of item ids that should be considered as a Soul Torch.
    * Defaults to a list of the most common modded torches.
    */
-  private ModConfigSpec.ConfigValue<List<? extends String>> extraSoulTorchItems;
+  private ForgeConfigSpec.ConfigValue<List<? extends String>> extraSoulTorchItems;
 
   /**
    * Whether Vanilla torches can set targets on fire.
    */
-  private ModConfigSpec.BooleanValue vanillaTorchesEnabled;
+  private ForgeConfigSpec.BooleanValue vanillaTorchesEnabled;
 
   /**
    * Whether to allow candles to act as torches.
    */
-  private ModConfigSpec.ConfigValue<Boolean> allowCandles;
+  private ForgeConfigSpec.ConfigValue<Boolean> allowCandles;
 
   /**
    * Whether candles should break upon use.
    */
-  private ModConfigSpec.ConfigValue<Boolean> consumeCandle;
+  private ForgeConfigSpec.ConfigValue<Boolean> consumeCandle;
 
   /**
    * Whether torches should break upon use.
    */
-  private ModConfigSpec.BooleanValue consumeTorch;
+  private ForgeConfigSpec.BooleanValue consumeTorch;
 
   /**
    * Whether to break the torch/candle upon use even if no fire was set.
    */
-  private ModConfigSpec.BooleanValue consumeWithoutFire;
+  private ForgeConfigSpec.BooleanValue consumeWithoutFire;
 
   /**
    * Whether to break the torch/candle upon indirect hits.
    */
-  private ModConfigSpec.BooleanValue consumeWithIndirectHit;
+  private ForgeConfigSpec.BooleanValue consumeWithIndirectHit;
 
   /**
    * Chance (in percentage) for torches/candles to set targets on fire.
    */
-  private ModConfigSpec.IntValue fireChance;
+  private ForgeConfigSpec.IntValue fireChance;
 
   /**
    * Whether mobs wielding a torch can set their targets on fire.
    */
-  private ModConfigSpec.BooleanValue fireFromMobs;
+  private ForgeConfigSpec.BooleanValue fireFromMobs;
 
   /**
    * @param builder configuration builder.
    */
-  private ModConfig(ModConfigSpec.Builder builder) {
+  private ModConfig(ForgeConfigSpec.Builder builder) {
     super(builder);
   }
 
@@ -226,7 +226,7 @@ public final class ModConfig extends CommonConfig {
   }
 
   @Override
-  protected void define(ModConfigSpec.Builder builder) {
+  protected void define(ForgeConfigSpec.Builder builder) {
     int maxDuration = Enchantments.FIRE_ASPECT.getMaxLevel() * 4;
     directHitDuration = builder.comment(" Fire damage duration for direct (main hand) hits.").defineInRange("direct hit duration", 4, 1, maxDuration);
     indirectHitDuration = builder.comment(" Fire damage duration for indirect (offhand + tool) hits.").defineInRange("indirect hit duration", 2, 1, maxDuration);
@@ -236,10 +236,10 @@ public final class ModConfig extends CommonConfig {
         " Leave empty to disable indirect hits.",
         " Insert either item categories or specific item IDs."
       )
-      .defineListAllowEmpty("indirect tools", () -> List.of("sword", "axe", "pickaxe", "shovel", "hoe"), this::stringListValidator);
+      .defineListAllowEmpty(List.of("indirect tools"), () -> List.of("sword", "axe", "pickaxe", "shovel", "hoe"), this::stringListValidator);
     indirectHitToolDamage = builder.comment(" How much Indirect Hits should damage wooden tools (in percentage).", " 0 to disable.").defineInRange("indirect hit tool damage", 33, 0, 100);
     extraTorchItems = builder.comment(" List of item ids that should be considered as a Torch.").defineListAllowEmpty(
-      "extra torch items",
+      List.of("extra torch items"),
       () -> List.of(
         "bonetorch:bonetorch",
         "torchmaster:megatorch",
@@ -271,7 +271,7 @@ public final class ModConfig extends CommonConfig {
       this::stringListValidator
     );
     extraSoulTorchItems = builder.comment(" List of item ids that should be considered as a Soul Torch.").defineListAllowEmpty(
-      "extra soul torch items",
+      List.of("extra soul torch items"),
       () -> List.of(
         "pgwbandedtorches:banded_soul_torch_white",
         "pgwbandedtorches:banded_soul_torch_orange",

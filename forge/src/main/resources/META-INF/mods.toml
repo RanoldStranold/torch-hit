@@ -31,12 +31,6 @@ issueTrackerURL="https://github.com/${github_user}/${mod_id_kebab}/issues" #opti
   ordering = "NONE"
   side = "BOTH"
 [[dependencies.${mod_id}]]
-  modId = "forgeconfigapiport"
-  mandatory = true
-  versionRange = "[${fcap_version},)"
-  ordering = "NONE"
-  side = "BOTH"
-[[dependencies.${mod_id}]]
   modId = "soul_fire_d"
   mandatory = false
   versionRange = "[${soul_fire_d_version},)"
