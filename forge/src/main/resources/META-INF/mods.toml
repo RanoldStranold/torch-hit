@@ -38,7 +38,7 @@ issueTrackerURL="https://github.com/${github_user}/${mod_id_kebab}/issues" #opti
   side = "BOTH"
 [[dependencies.${mod_id}]]
   modId = "soul_fire_d"
-  mandatory = false # Change this to false if Soul Fire'd is not required.
+  mandatory = false
   versionRange = "[${soul_fire_d_version},)"
   ordering = "BEFORE"
   side = "BOTH"
