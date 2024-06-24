@@ -60,7 +60,7 @@ Remove `|candle` if you disable candles in Torch hit!'s configuration.
 |:------------------------------------------------------------------------|:----------------------:|:-----------:|
 | [Cobweb](https://modrinth.com/mod/cobweb)                               |          All           |  Required   |
 | [Forge Config API Port](https://modrinth.com/mod/forge-config-api-port) | Fabric; Forge ≥ 1.20.2 |  Required   |
-| [Soul Fire'd](https://modrinth.com/mod/soul-fire-d)                     |      Fabric/Forge      |  Optional   |
+| [Soul Fire'd](https://modrinth.com/mod/soul-fire-d)                     |          All           |  Optional   |
 
 ## **License and right of use**
 
