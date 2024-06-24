@@ -19,6 +19,6 @@ public final class ForgeAttackHandler extends AttackHandler {
    */
   @SubscribeEvent
   public static void handle(LivingAttackEvent event) {
-    handle(event.getSource().getEntity(), event.getSource().getDirectEntity(), event.getEntity());
+    handle(event.getSource().getEntity(), event.getSource().getDirectEntity(), event.getEntityLiving());
   }
 }

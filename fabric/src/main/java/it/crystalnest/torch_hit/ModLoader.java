@@ -1,8 +1,8 @@
 package it.crystalnest.torch_hit;
 
+import it.crystalnest.cobweb.api.event.ServerLivingEntityEvents;
 import it.crystalnest.torch_hit.handler.FabricAttackHandler;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
