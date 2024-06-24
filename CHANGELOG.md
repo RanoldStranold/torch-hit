@@ -12,7 +12,6 @@ and this project adheres to [Crystal Nest Semantic Versioning](https://crystalne
 ## [7.0.0] - 2024/06/25
 
 - Improve Soul Fire'd compatibility and update to v4.0.2.
-- Add Better Combat compatibility.
 - Upgrade to a multiloader environment and update standards.
 
 <details>
