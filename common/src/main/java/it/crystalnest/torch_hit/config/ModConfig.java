@@ -226,7 +226,8 @@ public final class ModConfig extends CommonConfig {
 
   @Override
   protected void define(ModConfigSpec.Builder builder) {
-    int maxDuration = 8; // Max Fire Aspect level (2) times Fire Aspect duration (4).
+    // Max Fire Aspect level (2) times Fire Aspect duration (4).
+    int maxDuration = 8;
     directHitDuration = builder.comment(" Fire damage duration for direct (main hand) hits.").defineInRange("direct hit duration", 4, 1, maxDuration);
     indirectHitDuration = builder.comment(" Fire damage duration for indirect (offhand + tool) hits.").defineInRange("indirect hit duration", 2, 1, maxDuration);
     indirectHitToolList = builder
