@@ -2,7 +2,6 @@ package it.crystalnest.torch_hit.config;
 
 import it.crystalnest.cobweb.api.config.CommonConfig;
 import it.crystalnest.torch_hit.Constants;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -227,7 +226,7 @@ public final class ModConfig extends CommonConfig {
 
   @Override
   protected void define(ModConfigSpec.Builder builder) {
-    int maxDuration = Enchantments.FIRE_ASPECT.getMaxLevel() * 4;
+    int maxDuration = 8; // Max Fire Aspect level (2) times Fire Aspect duration (4).
     directHitDuration = builder.comment(" Fire damage duration for direct (main hand) hits.").defineInRange("direct hit duration", 4, 1, maxDuration);
     indirectHitDuration = builder.comment(" Fire damage duration for indirect (offhand + tool) hits.").defineInRange("indirect hit duration", 2, 1, maxDuration);
     indirectHitToolList = builder

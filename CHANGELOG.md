@@ -9,7 +9,11 @@ and this project adheres to [Crystal Nest Semantic Versioning](https://crystalne
 
 - Nothing new.
 
-## [7.0.0] - 2024/06/24
+## [v7.0.0] - 2024/07/10
+
+- Ported to 1.21.
+
+## [v7.0.0] - 2024/06/24
 
 - Improve Soul Fire'd compatibility and update to v4.0.2.
 - Upgrade to a multiloader environment and update standards.
@@ -195,7 +199,7 @@ and this project adheres to [Crystal Nest Semantic Versioning](https://crystalne
 [Unreleased]: https://github.com/crystal-nest/torch-hit
 [README]: https://github.com/crystal-nest/torch-hit#readme
 
-[7.0.0]: https://github.com/crystal-nest/torch-hit/releases?q=7.0.0
+[v7.0.0]: https://github.com/crystal-nest/torch-hit/releases?q=7.0.0
 
 [1.20.4-6.0.2.0]: https://github.com/crystal-nest/torch-hit/releases/tag/v1.20.4-6.0.2.0
 [1.20.2-6.0.2.0]: https://github.com/crystal-nest/torch-hit/releases/tag/v1.20.2-6.0.2.0

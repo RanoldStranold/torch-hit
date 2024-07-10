@@ -8,6 +8,7 @@ import it.crystalnest.torch_hit.platform.Services;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.player.Player;
@@ -21,8 +22,8 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Handles attack events.
  */
-public abstract class AttackHandler {
-  protected AttackHandler() {}
+public final class AttackHandler {
+  private AttackHandler() {}
 
   /**
    * Handles the attack entity event.
@@ -31,7 +32,7 @@ public abstract class AttackHandler {
    * @param directEntity entity that actually dealt the damage.
    * @param target targeted entity.
    */
-  protected static void handle(Entity entity, Entity directEntity, LivingEntity target) {
+  public static void handle(Entity entity, Entity directEntity, LivingEntity target) {
     if (entity instanceof LivingEntity attacker && entity.equals(directEntity) && !entity.level().isClientSide && !entity.isSpectator() && canAttack(attacker, target)) {
       InteractionHand interactionHand = getInteractionHand(attacker);
       if (interactionHand != null && !target.fireImmune()) {
@@ -69,7 +70,7 @@ public abstract class AttackHandler {
       if (((isCandle(item) && ModConfig.getConsumeCandle()) || (isTorch(item) && ModConfig.getConsumeTorch())) && (directHit || ModConfig.getConsumeWithIndirectHits()) && (ModConfig.getConsumeWithoutFire() || seconds > 0)) {
         item.shrink(1);
       } else if (attacker.getMainHandItem().getItem() instanceof TieredItem tieredItem && tieredItem.getTier() == Tiers.WOOD && ModConfig.getIndirectHitToolDamage() > 0) {
-        attacker.getMainHandItem().hurtAndBreak((tieredItem.getMaxDamage() * ModConfig.getIndirectHitToolDamage() + 99) / 100, attacker, livingEntity -> livingEntity.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+        attacker.getMainHandItem().hurtAndBreak((tieredItem.getTier().getUses() * ModConfig.getIndirectHitToolDamage() + 99) / 100, attacker, EquipmentSlot.MAINHAND);
       }
     }
   }
@@ -88,7 +89,7 @@ public abstract class AttackHandler {
       if (Services.PLATFORM.isModLoaded("soul_fire_d")) {
         SoulFired.setOnFire(item, target, seconds);
       } else {
-        target.setSecondsOnFire(seconds);
+        target.igniteForSeconds(seconds);
       }
     }
     return seconds;

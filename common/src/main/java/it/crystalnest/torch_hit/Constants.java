@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 @ApiStatus.Internal
 public final class Constants {
   /**
-   * Mod id.
+   * Mod ID.
    */
   public static final String MOD_ID = "torch_hit";
 

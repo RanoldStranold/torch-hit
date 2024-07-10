@@ -6,7 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 /**
  * Fabric attack handler.
  */
-public final class FabricAttackHandler extends AttackHandler {
+public final class FabricAttackHandler {
   private FabricAttackHandler() {}
 
   /**
@@ -18,7 +18,7 @@ public final class FabricAttackHandler extends AttackHandler {
    * @return whether the target can be damaged.
    */
   public static boolean handle(LivingEntity target, DamageSource source, float amount) {
-    handle(source.getEntity(), source.getDirectEntity(), target);
+    AttackHandler.handle(source.getEntity(), source.getDirectEntity(), target);
     return true;
   }
 }
